@@ -200,7 +200,7 @@ to `~/.bashrc` (or the appropriate shell config file):
 Note that you can specify this as an ENV variable when running the
 `active_mailbox` executable.
 
-    ASTERISK_VOICEMAIL_ROOT='/root' active_mailbox [OPTION] CONTEXT MAILBOX
+    ASTERISK_VOICEMAIL_ROOT='/root' active_mailbox [OPTION] MAILBOX
 
 
 ## Development
