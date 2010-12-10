@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'active_mailbox'
+require 'active_mailbox/cli'
+
+ActiveMailbox::CLI.run!(ARGV)
