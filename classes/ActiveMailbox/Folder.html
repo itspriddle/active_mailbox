@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveMailbox::Folder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            ActiveMailbox::Folder 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/active_mailbox/folder_rb.html">lib/active_mailbox/folder.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="Folder.html">ActiveMailbox::Folder</a> represents an Asterisk
+mailbox <a href="Folder.html">Folder</a>, such as INBOX, or Old. They
+contain the actuall messages for a mailbox.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>#</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000003"><=></a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000015">clean_ghosts!</a>,</li>
+                
+                <li><a href="#M000018">clean_stale!</a>,</li>
+                
+                <li><a href="#M000006">count</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>D</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000019">destroy!</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>M</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000004">messages</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000005">name</a>,</li>
+                
+                <li><a href="#M000002">new</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>P</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000011">purge!</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000008">size</a>,</li>
+                
+                <li><a href="#M000009">sort!</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <span>Comparable</span>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>path</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>mailbox</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>reload_messages</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000002">
+                    
+                    <a name="M000002"></a><b>new</b>(path, mailbox)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Create a new <a href="Folder.html">Folder</a> object
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L17" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000002_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 17</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">path</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveMailbox</span><span class="ruby-operator">::</span><span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">FolderNotFound</span>, <span class="ruby-node">&quot;#{path} does not exist&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@mailbox</span> = <span class="ruby-identifier">mailbox</span>
+      <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000003">
+                    
+                    <a name="M000003"></a><b>&lt;=&gt;</b>(other)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Compare base on path
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L28" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000003_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 28</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+      <span class="ruby-identifier">path</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">path</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000015">
+                    
+                    <a name="M000015"></a><b>clean_ghosts!</b>(autosort = true)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Clean all &#8216;ghost&#8217; Messages in this <a
+href="Folder.html">Folder</a>
+</p>
+<p>
+A &#8216;ghost&#8217; voicemail occurs when the .wav file does not exist.
+Asterisk sees the info (txt) file and thinks a voicemail exists, then plays
+nothing as the wav is not found.
+</p>
+<p>
+At the same time, you might run into issues if a wav exists, but not the
+txt file.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L117" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000015_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 117</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clean_ghosts!</span>(<span class="ruby-identifier">autosort</span> = <span class="ruby-keyword kw">true</span>)
+      <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@path</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">message_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">txt</span> = <span class="ruby-node">&quot;#{Dir.pwd}/#{file}.txt&quot;</span>
+          <span class="ruby-identifier">wav</span> = <span class="ruby-node">&quot;#{Dir.pwd}/#{file}.wav&quot;</span>
+
+          <span class="ruby-identifier">txt_exists</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">txt</span>)
+          <span class="ruby-identifier">wav_exists</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">wav</span>)
+
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">txt_exists</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">wav_exists</span>
+            <span class="ruby-constant">File</span>.<span class="ruby-identifier">unlink</span>(<span class="ruby-identifier">txt</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">txt_exists</span>
+            <span class="ruby-constant">File</span>.<span class="ruby-identifier">unlink</span>(<span class="ruby-identifier">wav</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">wav_exists</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">sort!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">autosort</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000018">
+                    
+                    <a name="M000018"></a><b>clean_stale!</b>(autosort = true)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Destroy Messages in this <a href="Folder.html">Folder</a> that are older
+than 30 days
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L138" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000018_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 138</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clean_stale!</span>(<span class="ruby-identifier">autosort</span> = <span class="ruby-keyword kw">true</span>)
+      <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">destroy!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">stale?</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">sort!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">autosort</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000006">
+                    
+                    <a name="M000006"></a><b>count</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Returns number of messages in this folder
+</p>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="Folder.html#M000008">size</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L59" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000006_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 59</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">count</span>
+      <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">count</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000019">
+                    
+                    <a name="M000019"></a><b>destroy!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Destroy this <a href="Folder.html">Folder</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L148" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000019_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 148</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy!</span>
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-ivar">@path</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000004">
+                    
+                    <a name="M000004"></a><b>messages</b>(reload = false)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+An array of <a href="Message.html">Message</a> objects in this folder
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L35" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000004_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 35</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">messages</span>(<span class="ruby-identifier">reload</span> = <span class="ruby-keyword kw">false</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reload</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@reload_messages</span> <span class="ruby-keyword kw">or</span> <span class="ruby-operator">!</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@messages</span>)
+        <span class="ruby-ivar">@messages</span> = []
+        <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@path</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-constant">Dir</span>[<span class="ruby-value str">&quot;*.txt&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">txt</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@messages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Message</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{Dir.pwd}/#{txt}&quot;</span>, <span class="ruby-keyword kw">self</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@messages</span>
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-ivar">@reload_messages</span> = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000005">
+                    
+                    <a name="M000005"></a><b>name</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+The name of this folder
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000005_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 52</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-ivar">@name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>).<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000011">
+                    
+                    <a name="M000011"></a><b>purge!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Destroy all messages/info files in this folder
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L97" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000011_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 97</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">purge!</span>
+      <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@path</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-constant">Dir</span>[<span class="ruby-value str">&quot;*&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+          <span class="ruby-constant">File</span>.<span class="ruby-identifier">unlink</span>(<span class="ruby-identifier">file</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-ivar">@reload_messages</span> = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000008">
+                    
+                    <a name="M000008"></a><b>size</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="Folder.html#M000006">count</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000009">
+                    
+                    <a name="M000009"></a><b>sort!</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Sort messages in this folder
+</p>
+<p>
+Eg:
+</p>
+<pre>
+  Before Sort: msg0002, msg0005, msg0010, msg0020
+  After Sort:  msg0000, msg0001, msg0002, msg0003
+</pre>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L71" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000009_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 71</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort!</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">number</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+        <span class="ruby-identifier">renamer</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">old_file</span>, <span class="ruby-identifier">new_file</span><span class="ruby-operator">|</span>
+          <span class="ruby-node">%w[wav txt]</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
+            <span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-node">&quot;#{old_file}.#{ext}&quot;</span>, <span class="ruby-node">&quot;#{new_file}.#{ext}&quot;</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">old_file</span> = <span class="ruby-identifier">message</span>.<span class="ruby-identifier">path</span>
+          <span class="ruby-identifier">tmp_file</span> = <span class="ruby-identifier">old_file</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/msg[0-9]{4}/</span>, <span class="ruby-value str">'temp_msg%04d'</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">index</span>)
+          <span class="ruby-identifier">renamer</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">old_file</span>, <span class="ruby-identifier">tmp_file</span>)
+          [<span class="ruby-identifier">old_file</span>, <span class="ruby-identifier">tmp_file</span>]
+        <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">old_file</span>, <span class="ruby-identifier">tmp_file</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">new_file</span> = <span class="ruby-identifier">tmp_file</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-value str">'temp_msg'</span>, <span class="ruby-value str">'msg'</span>)
+          <span class="ruby-identifier">renamer</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">tmp_file</span>, <span class="ruby-identifier">new_file</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-ivar">@reload_messages</span> = <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

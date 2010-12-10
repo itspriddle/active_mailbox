@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ActiveMailbox::CLI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            ActiveMailbox::CLI 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/active_mailbox/cli_rb.html">lib/active_mailbox/cli.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+This class facilites ActiveMailbox&#8217;s command line functions
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>P</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000001">parse</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000000">run!</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000001">
+                    
+                    <a name="M000001"></a><b>parse</b>(argv)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Parse <a href="CLI.html">CLI</a> arguments (ARGV)
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/cli.rb#L30" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000001_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/cli.rb, line 30</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">argv</span>)
+      <span class="ruby-identifier">options</span> = {}
+
+      <span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-value str">&quot;Usage: active_mailbox [OPTION] MAILBOX\n&quot;</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;Mailbox Options:&quot;</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--context'</span>, <span class="ruby-value str">'Look for [MAILBOX] in [CONTEXT]'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">context</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:context</span>] = <span class="ruby-identifier">conext</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--delete'</span>, <span class="ruby-value str">'Delete [MAILBOX] and all messages'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:delete!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--sort'</span>, <span class="ruby-value str">'Sort messages in [MAILBOX] (recursive)'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:sort!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;Cleanup Options:&quot;</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--clean-ghosts'</span>, <span class="ruby-value str">&quot;Cleanup 'ghost' messages&quot;</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:clean_ghosts!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--clean-stale'</span>, <span class="ruby-value str">'Cleanup messages older than 30 days'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:clean_stale!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--clean-mp3s'</span>, <span class="ruby-value str">'Cleanup [MAILBOX]/.mp3 directory'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:clean_mp3s!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--purge'</span>, <span class="ruby-value str">'Remove all messages, but leave [MAILBOX] folders intact'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:purge!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;Greeting Options:&quot;</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--delete-temp'</span>, <span class="ruby-value str">'Delete [MAILBOX]/temp.wav'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:delete_temp_greeting!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--delete-unavail'</span>, <span class="ruby-value str">'Delete [MAILBOX]/unavail.wav'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:delete_unavail_greeting!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'--delete-busy'</span>, <span class="ruby-value str">'Delete [MAILBOX]/busy.wav'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:delete_busy_greeting!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;General Options:&quot;</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'-h'</span>, <span class="ruby-value str">'--help'</span>, <span class="ruby-value str">'Show this message'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:help</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-identifier">opts</span>
+          <span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">'-v'</span>, <span class="ruby-value str">'--version'</span>, <span class="ruby-value str">'Show version'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>] = <span class="ruby-identifier">:version</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-constant">ActiveMailbox</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>
+          <span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">argv</span> = [<span class="ruby-value str">'-h'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">argv</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">argv</span>)
+          <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:mailbox</span>] = <span class="ruby-identifier">argv</span>.<span class="ruby-identifier">shift</span>
+          <span class="ruby-identifier">options</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+          <span class="ruby-constant">STDERR</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">message</span>, <span class="ruby-value str">&quot;\n&quot;</span>, <span class="ruby-identifier">opts</span>
+          <span class="ruby-identifier">exit</span>(<span class="ruby-value">-1</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000000">
+                    
+                    <a name="M000000"></a><b>run!</b>(argv)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Invoke the <a href="CLI.html">CLI</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
+                        
+                        | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/cli.rb#L12" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000000_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/active_mailbox/cli.rb, line 12</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">run!</span>(<span class="ruby-identifier">argv</span>)
+      <span class="ruby-identifier">options</span> = <span class="ruby-constant">ActiveMailbox</span><span class="ruby-operator">::</span><span class="ruby-constant">CLI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">argv</span>)
+
+      <span class="ruby-identifier">args</span> = [<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:mailbox</span>]]
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:context</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:context</span>]
+
+      <span class="ruby-identifier">mailbox</span> = <span class="ruby-constant">ActiveMailbox</span><span class="ruby-operator">::</span><span class="ruby-constant">Mailbox</span>.<span class="ruby-identifier">find</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:arg</span>]
+        <span class="ruby-identifier">mailbox</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>], <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:arg</span>])
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">mailbox</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:command</span>])
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
