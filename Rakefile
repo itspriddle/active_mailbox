@@ -1,6 +1,6 @@
 require 'rake/testtask'
 
-$LOAD_PATH.unshift 'lib'
+$:.unshift 'lib'
 
 desc "Start an IRB session preloaded with this library"
 task :console do
@@ -10,7 +10,7 @@ end
 require 'sdoc_helpers'
 desc "Push a new version to Gemcutter"
 task :publish do
-  require 'apnd/version'
+  require 'active_mailbox/version'
 
   ver = ActiveMailbox::Version
 
