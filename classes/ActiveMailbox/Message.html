@@ -57,7 +57,7 @@ Asterisk voicemail
         <dd>
             <ul>
                 
-                <li><a href="#M000037"><=></a></li>
+                <li><a href="#M000039"><=></a></li>
                 
             </ul>
         </dd>
@@ -77,7 +77,7 @@ Asterisk voicemail
         <dd>
             <ul>
                 
-                <li><a href="#M000038">destroy!</a>,</li>
+                <li><a href="#M000040">destroy!</a>,</li>
                 
                 <li><a href="#M000044">duration</a></li>
                 
@@ -88,11 +88,11 @@ Asterisk voicemail
         <dd>
             <ul>
                 
-                <li><a href="#M000035">name</a>,</li>
+                <li><a href="#M000037">name</a>,</li>
                 
-                <li><a href="#M000030">new</a>,</li>
+                <li><a href="#M000035">new</a>,</li>
                 
-                <li><a href="#M000036">number</a></li>
+                <li><a href="#M000038">number</a></li>
                 
             </ul>
         </dd>
@@ -214,9 +214,9 @@ used by this class
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000030">
+                <div class="title" id="M000035">
                     
-                    <a name="M000030"></a><b>new</b>(info_file, folder)
+                    <a name="M000035"></a><b>new</b>(info_file, folder)
                     
                 </div>
                 
@@ -225,12 +225,12 @@ used by this class
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/message.rb#L23" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000030_source" class="dyn-source">
+                    <div id="M000035_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/message.rb, line 23</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">info_file</span>, <span class="ruby-identifier">folder</span>)
       <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">info_file</span>)
@@ -248,9 +248,9 @@ used by this class
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000037">
+                <div class="title" id="M000039">
                     
-                    <a name="M000037"></a><b>&lt;=&gt;</b>(other)
+                    <a name="M000039"></a><b>&lt;=&gt;</b>(other)
                     
                 </div>
                 
@@ -266,12 +266,12 @@ Compare messages by the number in the name
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/message.rb#L49" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000037_source" class="dyn-source">
+                    <div id="M000039_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/message.rb, line 49</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
       <span class="ruby-identifier">number</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">number</span>
@@ -350,9 +350,9 @@ The caller&#8217;s phone number (from CallerID)
             </div>
             
             <div class="method">
-                <div class="title" id="M000038">
+                <div class="title" id="M000040">
                     
-                    <a name="M000038"></a><b>destroy!</b>()
+                    <a name="M000040"></a><b>destroy!</b>()
                     
                 </div>
                 
@@ -368,12 +368,12 @@ Destroy this Message&#8217;s wav and txt files
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/message.rb#L56" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000038_source" class="dyn-source">
+                    <div id="M000040_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/message.rb, line 56</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy!</span>
       [<span class="ruby-identifier">txt</span>, <span class="ruby-identifier">wav</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
@@ -422,9 +422,9 @@ The duration of this <a href="Message.html">Message</a> (in seconds)
             </div>
             
             <div class="method">
-                <div class="title" id="M000035">
+                <div class="title" id="M000037">
                     
-                    <a name="M000035"></a><b>name</b>()
+                    <a name="M000037"></a><b>name</b>()
                     
                 </div>
                 
@@ -440,12 +440,12 @@ The name of this message (ex: msg0001)
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/message.rb#L35" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000035_source" class="dyn-source">
+                    <div id="M000037_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/message.rb, line 35</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
       <span class="ruby-ivar">@name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>).<span class="ruby-identifier">last</span>
@@ -456,9 +456,9 @@ The name of this message (ex: msg0001)
             </div>
             
             <div class="method">
-                <div class="title" id="M000036">
+                <div class="title" id="M000038">
                     
-                    <a name="M000036"></a><b>number</b>()
+                    <a name="M000038"></a><b>number</b>()
                     
                 </div>
                 
@@ -474,12 +474,12 @@ The number pulled from name
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/message.rb#L42" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000036_source" class="dyn-source">
+                    <div id="M000038_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/message.rb, line 42</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">number</span>
       <span class="ruby-ivar">@number</span> <span class="ruby-operator">||=</span> (<span class="ruby-identifier">num</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/([0-9]{4})$/</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">num</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>)

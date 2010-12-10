@@ -71,7 +71,7 @@ contain the actuall messages for a mailbox.
                 
                 <li><a href="#M000018">clean_stale!</a>,</li>
                 
-                <li><a href="#M000006">count</a></li>
+                <li><a href="#M000007">count</a></li>
                 
             </ul>
         </dd>
@@ -80,7 +80,7 @@ contain the actuall messages for a mailbox.
         <dd>
             <ul>
                 
-                <li><a href="#M000019">destroy!</a></li>
+                <li><a href="#M000022">destroy!</a></li>
                 
             </ul>
         </dd>
@@ -98,7 +98,7 @@ contain the actuall messages for a mailbox.
         <dd>
             <ul>
                 
-                <li><a href="#M000005">name</a>,</li>
+                <li><a href="#M000006">name</a>,</li>
                 
                 <li><a href="#M000002">new</a></li>
                 
@@ -109,7 +109,7 @@ contain the actuall messages for a mailbox.
         <dd>
             <ul>
                 
-                <li><a href="#M000011">purge!</a></li>
+                <li><a href="#M000014">purge!</a></li>
                 
             </ul>
         </dd>
@@ -353,9 +353,9 @@ than 30 days
             </div>
             
             <div class="method">
-                <div class="title" id="M000006">
+                <div class="title" id="M000007">
                     
-                    <a name="M000006"></a><b>count</b>()
+                    <a name="M000007"></a><b>count</b>()
                     
                 </div>
                 
@@ -378,12 +378,12 @@ Returns number of messages in this folder
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L59" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000006_source" class="dyn-source">
+                    <div id="M000007_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 59</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">count</span>
       <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">count</span>
@@ -394,9 +394,9 @@ Returns number of messages in this folder
             </div>
             
             <div class="method">
-                <div class="title" id="M000019">
+                <div class="title" id="M000022">
                     
-                    <a name="M000019"></a><b>destroy!</b>()
+                    <a name="M000022"></a><b>destroy!</b>()
                     
                 </div>
                 
@@ -412,12 +412,12 @@ Destroy this <a href="Folder.html">Folder</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L148" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000019_source" class="dyn-source">
+                    <div id="M000022_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 148</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">destroy!</span>
       <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-ivar">@path</span>)
@@ -472,9 +472,9 @@ An array of <a href="Message.html">Message</a> objects in this folder
             </div>
             
             <div class="method">
-                <div class="title" id="M000005">
+                <div class="title" id="M000006">
                     
-                    <a name="M000005"></a><b>name</b>()
+                    <a name="M000006"></a><b>name</b>()
                     
                 </div>
                 
@@ -490,12 +490,12 @@ The name of this folder
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L52" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000005_source" class="dyn-source">
+                    <div id="M000006_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 52</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
       <span class="ruby-ivar">@name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>).<span class="ruby-identifier">last</span>
@@ -506,9 +506,9 @@ The name of this folder
             </div>
             
             <div class="method">
-                <div class="title" id="M000011">
+                <div class="title" id="M000014">
                     
-                    <a name="M000011"></a><b>purge!</b>()
+                    <a name="M000014"></a><b>purge!</b>()
                     
                 </div>
                 
@@ -524,12 +524,12 @@ Destroy all messages/info files in this folder
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
                         
                         | <a href="http://github.com/itspriddle/active_mailbox/blob/0fe9fc602a5b4435dda218e8b91ec47afaef0eb2/lib/active_mailbox/folder.rb#L97" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000011_source" class="dyn-source">
+                    <div id="M000014_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/active_mailbox/folder.rb, line 97</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">purge!</span>
       <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@path</span>) <span class="ruby-keyword kw">do</span>
@@ -554,7 +554,7 @@ Destroy all messages/info files in this folder
                 
                 <div class="description">
                   <p>
-Alias for <a href="Folder.html#M000006">count</a>
+Alias for <a href="Folder.html#M000007">count</a>
 </p>
 
                 </div>
