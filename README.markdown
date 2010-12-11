@@ -184,7 +184,7 @@ and voicemail messages.
     vm.duration
 
     # Delete this message
-    # Deletes wav, txt, mp3, xml files
+    # Deletes wav and txt files
     vm.destroy!
 
 
