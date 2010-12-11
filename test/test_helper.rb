@@ -65,15 +65,14 @@ module ActiveMailbox::Fixtures
   end
 
   def destroy!
-    if File.exists?(BASE_DIR)
-      FileUtils.rm_rf(BASE_DIR)
-    end
+    FileUtils.rm_rf(BASE_DIR) if File.exists?(BASE_DIR)
   end
 
   def create!
     FileUtils.mkdir_p(mailbox)
     FileUtils.touch(File.join(mailbox, 'unavail.wav'))
     FileUtils.touch(File.join(mailbox, 'temp.wav'))
+    FileUtils.touch(File.join(mailbox, 'busy.wav'))
 
     [inbox, old].each do |dir|
       FileUtils.mkdir_p(dir)

@@ -8,7 +8,7 @@ module ActiveMailbox
     #
     # Greetings that can be altered by ActiveMailbox
     #
-    ValidGreetings = [:unavail, :temp, :greet]
+    ValidGreetings = [:unavail, :temp, :busy]
 
     include Comparable
 
@@ -178,21 +178,21 @@ module ActiveMailbox
     # Delete temp.wav
     #
     def delete_temp_greeting!
-      greeting_exists?(:temp) && File.unlink(greeting_path(:temp))
+      delete_greeting!(:temp)
     end
 
     #
     # Delete busy.wav
     #
     def delete_busy_greeting!
-      greeting_exists?(:busy) && File.unlink(greeting_path(:busy))
+      delete_greeting!(:busy)
     end
 
     #
     # Delete unavail.wav
     #
     def delete_unavail_greeting!
-      greeting_exists?(:unavail) && File.unlink(greeting_path(:unavail))
+      delete_greeting!(:unavail)
     end
 
     #
