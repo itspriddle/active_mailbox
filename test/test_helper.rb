@@ -1,11 +1,12 @@
-# Set Asterisk's voicemail path so tests don't clobber a production system
-ENV['ASTERISK_VOICEMAIL_ROOT'] = "/tmp/active_mailbox_test_#{Time.now.to_i}"
-
 require 'rubygems'
 require 'test/unit'
 require 'turn'
 require 'shoulda'
 require 'fileutils'
+require 'tmpdir'
+
+# Set Asterisk's voicemail path so tests don't clobber a production system
+ENV['ASTERISK_VOICEMAIL_ROOT'] = File.join(Dir::tmpdir, "active_mailbox_test_#{Time.now.to_i}")
 
 require 'active_mailbox'
 
