@@ -59,10 +59,6 @@ module ActiveMailbox
           options[:command] = :clean_stale!
         end
 
-        opts.on('--clean-mp3s', 'Cleanup [MAILBOX]/.mp3 directory') do
-          options[:command] = :clean_mp3s!
-        end
-
         opts.on('--purge', 'Remove all messages, but leave [MAILBOX] folders intact') do
           options[:command] = :purge!
         end
